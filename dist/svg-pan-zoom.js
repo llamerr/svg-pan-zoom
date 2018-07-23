@@ -425,7 +425,12 @@ ShadowViewport.prototype.setCTM = function(newCTM) {
 
     // Check again if should zoom or pan
     if (willZoom || willPan) {
-      this.updateCTMOnNextFrame()
+      //TODO: @Alexey this either need to be reported to repo
+      // (no callback for async operation? getZoom() provides obsolete value?)
+      // or maybe our code need some fixing
+      //may affect performance
+      //this.updateCTMOnNextFrame()
+      this.updateCTMCached()
     }
   }
 }
